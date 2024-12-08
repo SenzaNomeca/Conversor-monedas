@@ -83,12 +83,12 @@ public class Moneda {
         return cantidadOrigen * conversiones.get(monedaDestino);
     }
 
-    public static void convertirMoneda(String monedaOrigen, String monedaDestino, Scanner teclado, ConsultaMoneda consulta) {
+    public static double convertirMoneda(String monedaOrigen, String monedaDestino, Scanner teclado, ConsultaMoneda consulta) {
         Moneda monedaAConsultar = consulta.buscarMoneda(monedaOrigen);
 
         if (monedaAConsultar == null) {
             System.out.println("Moneda no encontrada, disculpe.");
-            return;
+            return 0.0;
         }
 
         System.out.println("Ingrese la cantidad de " + monedaOrigen + " que desea convertir a " + monedaDestino + ":");
@@ -98,15 +98,19 @@ public class Moneda {
             double tasaDestino = monedaAConsultar.getValorPorCodigo(monedaDestino);
             if (tasaDestino == 0.0) {
                 System.out.println("La conversión no está disponible para este caso.");
-                return;
+                return 0.0;
             }
-            double resultado = monedaAConsultar.convertir(monedaDestino, cantidadOrigen);
-            System.out.println("El valor de " + cantidadOrigen + " " + monedaOrigen + " convertido a " +
-                    monedaDestino + " es de: " + resultado + " " + monedaDestino);
+                double resultado = monedaAConsultar.convertir(monedaDestino, cantidadOrigen);
+                System.out.println("El valor de " + cantidadOrigen + " " + monedaOrigen + " convertido a " +
+                        monedaDestino + " es de: " + resultado + " " + monedaDestino);
+                return resultado;
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
+        return 0.0;
     }
+
+
 
 
 
