@@ -12,7 +12,9 @@ public class Principal {
         Scanner teclado = new Scanner(System.in);
         String monedaOrigen;
         String monedaDestino;
+        double valorMonedaOrigen;
         double resultado;
+
 
         ArrayList<RegistroConversion> listaDeConversiones = new ArrayList<>();
         ConsultaMoneda consultaMoneda = new ConsultaMoneda();
@@ -41,10 +43,12 @@ public class Principal {
                 case 1:
                     monedaOrigen = "USD";
                     monedaDestino = "ARS";
-                    resultado = Moneda.convertirMoneda(monedaOrigen, monedaDestino, teclado, consultaMoneda);
 
-                    if (resultado != 0.0) { // Solo guarda si la conversión fue exitosa
-                        listaDeConversiones.add(new RegistroConversion(monedaOrigen, monedaDestino, resultado));
+                    valorMonedaOrigen = Moneda.pedirValorMoneda(teclado, monedaOrigen, monedaDestino);
+                    resultado = Moneda.convertirMoneda(monedaOrigen, monedaDestino, valorMonedaOrigen, consultaMoneda);
+
+                    if (resultado != 0.0) {
+                        listaDeConversiones.add(new RegistroConversion(monedaOrigen, valorMonedaOrigen,monedaDestino, resultado));
                     }
                     esperarRespuestaUsuario(teclado);
                     break;
@@ -52,10 +56,12 @@ public class Principal {
                 case 2:
                     monedaOrigen = "ARS";
                     monedaDestino = "USD";
-                    resultado = Moneda.convertirMoneda(monedaOrigen, monedaDestino, teclado, consultaMoneda);
 
-                    if (resultado != 0.0) { // Solo guarda si la conversión fue exitosa
-                        listaDeConversiones.add(new RegistroConversion(monedaOrigen, monedaDestino, resultado));
+                    valorMonedaOrigen = Moneda.pedirValorMoneda(teclado, monedaOrigen, monedaDestino);
+                    resultado = Moneda.convertirMoneda(monedaOrigen, monedaDestino, valorMonedaOrigen, consultaMoneda);
+
+                    if (resultado != 0.0) {
+                        listaDeConversiones.add(new RegistroConversion(monedaOrigen, valorMonedaOrigen,monedaDestino, resultado));
                     }
                     esperarRespuestaUsuario(teclado);
                     break;
@@ -63,11 +69,11 @@ public class Principal {
                 case 3:
                     monedaOrigen = "COP";
                     monedaDestino = "MXN";
-                    resultado = Moneda.convertirMoneda(monedaOrigen, monedaDestino, teclado, consultaMoneda);
+                    valorMonedaOrigen = Moneda.pedirValorMoneda(teclado, monedaOrigen, monedaDestino);
+                    resultado = Moneda.convertirMoneda(monedaOrigen, monedaDestino, valorMonedaOrigen, consultaMoneda);
 
-                    if (resultado != 0.0) { // Solo guarda si la conversión fue exitosa
-                        listaDeConversiones.add(new RegistroConversion(monedaOrigen, monedaDestino, resultado));
-
+                    if (resultado != 0.0) {
+                        listaDeConversiones.add(new RegistroConversion(monedaOrigen, valorMonedaOrigen,monedaDestino, resultado));
                     }
                     esperarRespuestaUsuario(teclado);
                     break;
@@ -75,10 +81,11 @@ public class Principal {
                 case 4:
                     monedaOrigen = "MXN";
                     monedaDestino = "COP";
-                    resultado = Moneda.convertirMoneda(monedaOrigen, monedaDestino, teclado, consultaMoneda);
+                    valorMonedaOrigen = Moneda.pedirValorMoneda(teclado, monedaOrigen, monedaDestino);
+                    resultado = Moneda.convertirMoneda(monedaOrigen, monedaDestino, valorMonedaOrigen, consultaMoneda);
 
-                    if (resultado != 0.0) { // Solo guarda si la conversión fue exitosa
-                        listaDeConversiones.add(new RegistroConversion(monedaOrigen, monedaDestino, resultado));
+                    if (resultado != 0.0) {
+                        listaDeConversiones.add(new RegistroConversion(monedaOrigen, valorMonedaOrigen,monedaDestino, resultado));
                     }
                     esperarRespuestaUsuario(teclado);
                     break;
@@ -86,10 +93,11 @@ public class Principal {
                 case 5:
                     monedaOrigen = "COP";
                     monedaDestino = "USD";
-                    resultado = Moneda.convertirMoneda(monedaOrigen, monedaDestino, teclado, consultaMoneda);
+                    valorMonedaOrigen = Moneda.pedirValorMoneda(teclado, monedaOrigen, monedaDestino);
+                    resultado = Moneda.convertirMoneda(monedaOrigen, monedaDestino, valorMonedaOrigen, consultaMoneda);
 
-                    if (resultado != 0.0) { // Solo guarda si la conversión fue exitosa
-                        listaDeConversiones.add(new RegistroConversion(monedaOrigen, monedaDestino, resultado));
+                    if (resultado != 0.0) {
+                        listaDeConversiones.add(new RegistroConversion(monedaOrigen, valorMonedaOrigen,monedaDestino, resultado));
                     }
                     esperarRespuestaUsuario(teclado);
                     break;
@@ -97,10 +105,11 @@ public class Principal {
                 case 6:
                     monedaOrigen = "USD";
                     monedaDestino = "COP";
-                    resultado = Moneda.convertirMoneda(monedaOrigen, monedaDestino, teclado, consultaMoneda);
+                    valorMonedaOrigen = Moneda.pedirValorMoneda(teclado, monedaOrigen, monedaDestino);
+                    resultado = Moneda.convertirMoneda(monedaOrigen, monedaDestino, valorMonedaOrigen, consultaMoneda);
 
-                    if (resultado != 0.0) { // Solo guarda si la conversión fue exitosa
-                        listaDeConversiones.add(new RegistroConversion(monedaOrigen, monedaDestino, resultado));
+                    if (resultado != 0.0) {
+                        listaDeConversiones.add(new RegistroConversion(monedaOrigen, valorMonedaOrigen,monedaDestino, resultado));
                     }
                     esperarRespuestaUsuario(teclado);
                     break;
@@ -108,10 +117,11 @@ public class Principal {
                 case 7:
                     monedaOrigen = "BRL";
                     monedaDestino = "USD";
-                    resultado = Moneda.convertirMoneda(monedaOrigen, monedaDestino, teclado, consultaMoneda);
+                    valorMonedaOrigen = Moneda.pedirValorMoneda(teclado, monedaOrigen, monedaDestino);
+                    resultado = Moneda.convertirMoneda(monedaOrigen, monedaDestino, valorMonedaOrigen, consultaMoneda);
 
-                    if (resultado != 0.0) { // Solo guarda si la conversión fue exitosa
-                        listaDeConversiones.add(new RegistroConversion(monedaOrigen, monedaDestino, resultado));
+                    if (resultado != 0.0) {
+                        listaDeConversiones.add(new RegistroConversion(monedaOrigen, valorMonedaOrigen,monedaDestino, resultado));
                     }
                     esperarRespuestaUsuario(teclado);
                     break;
@@ -119,10 +129,11 @@ public class Principal {
                 case 8:
                     monedaOrigen = "USD";
                     monedaDestino = "BRL";
-                    resultado = Moneda.convertirMoneda(monedaOrigen, monedaDestino, teclado, consultaMoneda);
+                    valorMonedaOrigen = Moneda.pedirValorMoneda(teclado, monedaOrigen, monedaDestino);
+                    resultado = Moneda.convertirMoneda(monedaOrigen, monedaDestino, valorMonedaOrigen, consultaMoneda);
 
                     if (resultado != 0.0) {
-                        listaDeConversiones.add(new RegistroConversion(monedaOrigen, monedaDestino, resultado));
+                        listaDeConversiones.add(new RegistroConversion(monedaOrigen, valorMonedaOrigen,monedaDestino, resultado));
                     }
                     esperarRespuestaUsuario(teclado);
                     break;

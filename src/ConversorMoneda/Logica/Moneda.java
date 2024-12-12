@@ -83,16 +83,24 @@ public class Moneda {
         return cantidadOrigen * conversiones.get(monedaDestino);
     }
 
-    public static double convertirMoneda(String monedaOrigen, String monedaDestino, Scanner teclado, ConsultaMoneda consulta) {
+    public static double pedirValorMoneda(Scanner teclado, String monedaOrigen, String monedaDestino){
+        System.out.println("Ingrese la cantidad de " + monedaOrigen + " que desea convertir a " + monedaDestino + ":");
+        double cantidadOrigen = teclado.nextDouble();
+
+        if(cantidadOrigen <= 0.0){
+            System.out.println("Profavor, ingrese un valor mayor a 0");
+            return pedirValorMoneda(teclado, monedaOrigen, monedaDestino);
+        }
+        return cantidadOrigen;
+    }
+
+    public static double convertirMoneda(String monedaOrigen, String monedaDestino, double cantidadOrigen, ConsultaMoneda consulta) {
         Moneda monedaAConsultar = consulta.buscarMoneda(monedaOrigen);
 
         if (monedaAConsultar == null) {
             System.out.println("Moneda no encontrada, disculpe.");
             return 0.0;
         }
-
-        System.out.println("Ingrese la cantidad de " + monedaOrigen + " que desea convertir a " + monedaDestino + ":");
-        double cantidadOrigen = teclado.nextDouble();
 
         try {
             double tasaDestino = monedaAConsultar.getValorPorCodigo(monedaDestino);
