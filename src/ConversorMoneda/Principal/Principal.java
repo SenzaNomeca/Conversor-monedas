@@ -1,9 +1,12 @@
 package ConversorMoneda.Principal;
 
 import ConversorMoneda.Logica.ConsultaMoneda;
+import ConversorMoneda.Logica.GeneradorDeArchivo;
 import ConversorMoneda.Logica.Moneda;
 import ConversorMoneda.Logica.RegistroConversion;
 
+import java.io.IOException;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,6 +17,7 @@ public class Principal {
         String monedaDestino;
         double valorMonedaOrigen;
         double resultado;
+        LocalTime hora;
 
 
         ArrayList<RegistroConversion> listaDeConversiones = new ArrayList<>();
@@ -157,6 +161,16 @@ public class Principal {
                 System.out.println("Conversion numero: " + i);
                 System.out.println(conversion);
                 i++;
+            }
+
+            try{
+                GeneradorDeArchivo generador = new GeneradorDeArchivo();
+                generador.guardarTxt(listaDeConversiones);
+                System.out.println("Finalizo la ejecucion del programa, el archivo Txt debe estar creado!");
+
+            }catch (IOException e){
+                System.out.println("Ocurrio un error al generar el Txt");
+                System.out.println(e.getMessage());
             }
         }
 
