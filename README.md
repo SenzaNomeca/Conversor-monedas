@@ -24,6 +24,7 @@ cambio proporcionadas por una API en tiempo real.
 - Conversion entre multiples monedas.
 - Tasa de cambio actualizada automaticamente desde la API (Exchange Rate).
 - Interfaz sencilla y facil de usar.
+- Registro de conversiones que incluye la hora en la que se realizó la conversion.
 
 #### Paises soportados:
 - Colombia (COP)
