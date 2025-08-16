@@ -36,7 +36,7 @@ cambio proporcionadas por una API en tiempo real.
 ### Acceso al conversor
   - **Despues de enstrar al src, ve a principal, ahi estara el conversor en su totalidad.**
   - PrincipalPrueba, como su nombre lo dice es una prueba que hice antes para saber como implementar la funcionalidad del conversor
-## 🚀 ESPERA POR MAS 🔄
+
 
 
 
